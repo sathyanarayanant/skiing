@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class SkiingTest {
 
@@ -121,5 +122,13 @@ public class SkiingTest {
         assertEquals(7, Skiing.getDrop(points));
 
         assertEquals(0, Skiing.getDrop(new ArrayList<Point>()));
+    }
+
+    @Test
+    public void testGetBetterOf2() {
+        List<Point> points1 = Lists.newArrayList(new Point(0, 0, 2), new Point(0, 1, 1));
+        List<Point> points2 = Lists.newArrayList(new Point(0, 0, 3), new Point(0, 1, 1));
+
+        assertTrue(points2 == Skiing.getBetterOf2(points1, points2));
     }
 }
