@@ -11,7 +11,7 @@ import static redmart.common.Util.ensure;
  */
 public class FileParser {
 
-    List<List<PointData>> parse(List<String> lines)  {
+    public static List<List<Point>> parse(List<String> lines)  {
 
         ensure(!lines.isEmpty(), "No lines specified in input");
 
@@ -29,19 +29,19 @@ public class FileParser {
 
         int numCols = Integer.parseInt(split[1]);
 
-        List<List<PointData>> listOfList = new ArrayList<>();
+        List<List<Point>> listOfList = new ArrayList<>();
         for (int i = 1; i < lines.size(); i++) {
             split = lines.get(i).split("\\s+");
 
             ensure(split.length == numCols, "Invalid number of tokens after splitting by space in line " + (i + 1) +
-                    ". Found " + split.length + "tokens but expected " + numCols);
+                    ". Found " + split.length + " tokens but expected " + numCols);
 
-            List<PointData> list = new ArrayList<>();
+            List<Point> list = new ArrayList<>();
             for (int j = 0; j < split.length; j++) {
                 String token = split[j];
                 ensure(Util.canParseAsInt(token), "Cannot parse [" + token + "] as int in line 1");
 
-                PointData point = new PointData(i - 1, j, Integer.parseInt(token));
+                Point point = new Point(i - 1, j, Integer.parseInt(token));
                 list.add(point);
             }
 

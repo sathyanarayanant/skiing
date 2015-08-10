@@ -9,31 +9,31 @@ import java.util.List;
  */
 public class Terrain {
 
-    private final List<List<PointData>> points;
+    private final List<List<Point>> points;
 
-    Terrain(List<List<PointData>> points) {
+    Terrain(List<List<Point>> points) {
         this.points = points;
     }
 
-    PointData getPrevRow(int rowIndex, int colIndex) {
+    Point getPrevRow(int rowIndex, int colIndex) {
         ensureValid(rowIndex - 1, colIndex);
 
         return points.get(rowIndex - 1).get(colIndex);
     }
 
-    PointData getNextRow(int rowIndex, int colIndex) {
+    Point getNextRow(int rowIndex, int colIndex) {
         ensureValid(rowIndex + 1, colIndex);
 
         return points.get(rowIndex + 1).get(colIndex);
     }
 
-    PointData getPrevCol(int rowIndex, int colIndex) {
+    Point getPrevCol(int rowIndex, int colIndex) {
         ensureValid(rowIndex, colIndex - 1);
 
         return points.get(rowIndex).get(colIndex - 1);
     }
 
-    PointData getNextCol(int rowIndex, int colIndex) {
+    Point getNextCol(int rowIndex, int colIndex) {
         ensureValid(rowIndex, colIndex + 1);
 
         return points.get(rowIndex).get(colIndex + 1);

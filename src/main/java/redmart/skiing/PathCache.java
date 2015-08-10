@@ -9,19 +9,19 @@ import java.util.Map;
  */
 public class PathCache {
 
-    private Map<String, List<PointData>> cache = new HashMap<>();
+    private Map<String, List<Point>> cache = new HashMap<>();
 
-    void put(PointData point, List<PointData> path) {
+    void put(Point point, List<Point> path) {
         String key = getKey(point.getRowIndex(), point.getColIndex());
         cache.put(key, path);
     }
 
-    List<PointData> get(PointData point) {
+    List<Point> get(Point point) {
         String key = getKey(point.getRowIndex(), point.getColIndex());
         return cache.get(key);
     }
 
-    boolean contains(PointData point) {
+    boolean contains(Point point) {
         String key = getKey(point.getRowIndex(), point.getColIndex());
         return cache.containsKey(key);
     }

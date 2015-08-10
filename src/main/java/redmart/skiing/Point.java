@@ -3,12 +3,12 @@ package redmart.skiing;
 /**
  * Created by sathya on 8/8/15.
  */
-public class PointData {
+public class Point {
     private int rowIndex;
     private int colIndex;
     private int height;
 
-    PointData(int rowIndex, int colIndex, int height) {
+    Point(int rowIndex, int colIndex, int height) {
         this.rowIndex = rowIndex;
         this.colIndex = colIndex;
         this.height = height;
