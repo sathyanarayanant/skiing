@@ -8,25 +8,30 @@ To build the project:
 3. ./gradlew build (for linux/mac) or gradlew build (for windows)
 
 # Algorithm (in brief)
-    List<Point> sorted = sortByHeightAsc(points);
+    List<Point> getBestPossiblePath(List<List<Point>> points) {
 
-    PathCache cache = new PathCache();
-    List<Point> best = new ArrayList<Point>();
-    for (Point point : sorted) {
-        List<Point> path = getBestPath(terrain, point, cache);
-        cache.put(point, path);
+        Terrain terrain = new Terrain(points);
 
-        best = getBetterOf2(path, best);
+        List<Point> sorted = sortByHeightAsc(points);
+
+        PathCache cache = new PathCache();
+        List<Point> best = new ArrayList<Point>();
+        for (Point point : sorted) {
+            List<Point> path = getBestPath(terrain, point, cache);
+            cache.put(point, path);
+
+            best = getBetterOf2(path, best);
+        }
+
+        return best;
     }
-
-    return best;
 
 
 ## Finding best path
-1. given current point find the left, right, top, bottom points.
-2. for each of left, right, top, bottom
-3.    get best path from cache and append current point
-4. choose the best path out of 4
+    given current point find the left, right, top, bottom points.
+    for each of left, right, top, bottom
+        get path from cache and append current point
+    choose the best path
 
 # Coding structure
 Most of the logic is implemented as stateless helper (or utility) functions that can be easily tested.
