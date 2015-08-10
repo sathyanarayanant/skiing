@@ -8,10 +8,19 @@ To build the project:
 3. ./gradlew build (for linux/mac) or gradlew build (for windows)
 
 # Algorithm (in brief)
-1. Sort points by height (in ascending order)
-2. for each point in sorted list
-      best_path = find_best_path # best path is the point itself for the point with least height
-      cache.put(point, best_path)
+    List<Point> sorted = sortByHeightAsc(points);
+
+    PathCache cache = new PathCache();
+    List<Point> best = new ArrayList<Point>();
+    for (Point point : sorted) {
+        List<Point> path = getBestPath(terrain, point, cache);
+        cache.put(point, path);
+
+        best = getBetterOf2(path, best);
+    }
+
+    return best;
+
 
 ## Finding best path
 1. given current point find the left, right, top, bottom points.
