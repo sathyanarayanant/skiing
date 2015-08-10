@@ -2,6 +2,7 @@
 
 This project uses gradle as build tool.
 To build the project:
+
 1. git clone https://github.com/sathyanarayanant/skiing.git
 2. cd skiing
 3. ./gradlew build (for linux/mac) or gradlew build (for windows)
