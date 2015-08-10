@@ -15,9 +15,9 @@ To build the project:
 
 ## Finding best path
 1. given current point find the left, right, top, bottom points.
-2. if (height is lesser than current)
-    get best_path from cache
-    append current point to it
+2. for each of left, right, top, bottom
+3.    get best path from cache and append current point
+4. choose the best path out of 4
 
 # Coding structure
 Most of the logic is implemented as stateless helper (or utility) functions that can be easily tested.
