@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/sathyanarayanant/skiing.svg?branch=master)](https://travis-ci.org/sathyanarayanant/skiing)
+
 # Building the project
 
 This project uses gradle as build tool.
